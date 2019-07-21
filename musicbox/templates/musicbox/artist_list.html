@@ -1,0 +1,11 @@
+{% extends 'musicbox/base.html' %}
+{% block content %}
+  {% include 'musicbox/sidebar.html' %}
+  <h2>Artist List</h2>
+  {% for artist in contexts %}
+    <p><div class="artist_name"><a href="{{ artist.get_absolute_url }}">{{ artist }}</a></div>
+    <div> : {{artist.song_set.count}} songs</div></p>
+  {% endfor %}
+
+  {% include 'musicbox/pagination.html' %}
+{% endblock %}

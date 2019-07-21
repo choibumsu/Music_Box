@@ -1,0 +1,21 @@
+<div class="pagination">
+    <span class="step-links">
+      <span class="current">
+          <p>Page {{ contexts.number }} of {{ contexts.paginator.num_pages }}</p>
+      </span>
+        {% if contexts.has_previous %}
+            <button><a href="?page=1" style="text-decoration:none">◀◀</a></button>
+            <button><a href="?page={{ contexts.previous_page_number }}" style="text-decoration:none">◀</a></button>
+        {%elif contexts.paginator.num_pages != 1%}
+            <button>X</button>
+            <button>X</button>
+        {% endif %}
+        {% if contexts.has_next %}
+            <button><a href="?page={{ contexts.next_page_number }}" style="text-decoration:none">▶</a></button>
+            <button><a href="?page={{ contexts.paginator.num_pages }}" style="text-decoration:none">▶▶</a></button>
+        {%elif contexts.paginator.num_pages != 1%}
+            <button>X</button>
+            <button>X</button>
+        {% endif %}
+    </span>
+</div>

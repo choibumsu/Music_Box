@@ -1,0 +1,11 @@
+{% extends 'musicbox/base.html' %}
+{% block content %}
+  {% include 'musicbox/sidebar.html' %}
+  <h2>Playlist List</h2>
+  {% for playlist in contexts %}
+    <p><div class="playlist_name"><a href="{{ playlist.get_absolute_url }}">{{ playlist }}</a></div>
+    <div> : {{playlist.songs.count}} songs</div></p>
+  {% endfor %}
+
+  {% include 'musicbox/pagination.html' %}
+{% endblock %}

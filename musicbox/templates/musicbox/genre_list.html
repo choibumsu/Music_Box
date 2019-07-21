@@ -1,0 +1,11 @@
+{% extends 'musicbox/base.html' %}
+{% block content %}
+    {% include 'musicbox/sidebar.html' %}
+    <h2>Genre List</h2>
+    {% for genre in contexts %}
+      <p><div class="genre_name"><a href="{{ genre.get_absolute_url }}">{{ genre }}</a></div>
+      <div> : {{genre.song_set.count}} songs</div></p>
+    {% endfor %}
+
+    {% include 'musicbox/pagination.html' %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'musicbox/base.html' %}
+{% block content %}
+  <div>
+      <h2><a href="/songs">Songs</a></h2>
+      <p>{{num_songs}} songs</p>
+  </div>
+  <div>
+      <h2><a href="/artists">Aritists</a></h2>
+      <p>{{num_artists}} aritists</p>
+  </div>
+  <div>
+      <h2><a href="/genres">Genres</a></h2>
+      <p>{{num_genres}} genres</p>
+  </div>
+  <div>
+      <h2><a href="/playlists">Playlists</a></h2>
+      <p>{{num_playlists}} playlists</p>
+  </div>
+
+  <div>
+      <p><br/><a href="https://github.com/choibumsu" target="_blank" id="siteby">by ChoiTeemo</a></p>
+  </div>
+{% endblock %}

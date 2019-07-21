@@ -1,0 +1,17 @@
+{% extends 'musicbox/base.html' %}
+{% block content %}
+    {% include 'musicbox/sidebar.html' %}
+    <p>
+    <div class="genre_name"><a href="">{{ genre }}</a><br/></div>
+    <div class="count_in_detail">{{genre.song_set.count}} songs</div><br/>
+    </p>
+
+    {% for song in contexts %}
+      <p><div class="song_title">{{song.title}}</div>
+      <p>{% for artist in song.artist.all %}<a href="{{ artist.get_absolute_url }}"> {{ artist }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}<br/>
+      <iframe id="{{song.id}}" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" width="640" height="360" src="https://www.youtube.com/embed/{{song.link}}"></iframe>
+      <br/><br/>
+    {% endfor %}
+
+    {% include 'musicbox/pagination.html' %}
+{% endblock %}
